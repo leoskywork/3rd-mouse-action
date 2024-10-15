@@ -24,7 +24,7 @@ namespace AutoClicker
         public int RectangleWidth = new int();
 
         Graphics g;
-        Pen BlackPen = new Pen(Color.Black, 1);
+        Pen BlackPen = new Pen(Color.Yellow, 4);
         SolidBrush TransparentBrush = new SolidBrush(Color.White);
         Pen EraserPen = new Pen(Color.FromArgb(051, 153, 255), 1);
         SolidBrush EraserBrush = new SolidBrush(Color.FromArgb(051, 153, 255));
