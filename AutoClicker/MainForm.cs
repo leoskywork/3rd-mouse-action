@@ -230,7 +230,7 @@ namespace AutoClicker
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form_Load(object sender, EventArgs e)
         {
             clicker = new AutoClicker();
             LoadSettings();
@@ -241,6 +241,14 @@ namespace AutoClicker
 
             clicker.NextClick += HandleNextClick;
             clicker.Finished += HandleFinished;
+
+            if (Environment.MachineName == "LEO-PC-PRO")
+            {
+                this.numRandomX.Value = 817;
+                this.numRandomY.Value = 465;
+                this.numRandomWidth.Value = 73;
+                this.numRandomHeight.Value = 57;
+            }
         }
 
         private void HandleNextClick(object sender, AutoClicker.NextClickEventArgs e)
@@ -433,7 +441,18 @@ namespace AutoClicker
 
         private void btnToggle_Click(object sender, EventArgs e)
         {
-            if (!clicker.IsAlive)
+            var isWaitingToRun = !clicker.IsAlive;
+            if (isWaitingToRun)
+            {
+                this.tslStatus.Text = $"task going to start in {GlobalHub.MouseTaskStartDelayMS}ms...";
+            }
+
+            this.RunOnMainAsync(() => this.StartOrStopTask(isWaitingToRun), GlobalHub.MouseTaskStartDelayMS);
+        }
+
+        private void StartOrStopTask(bool isWaitingToRun)
+        {
+            if (isWaitingToRun)
             {
                 clicker.Start();
                 DisableControls();
