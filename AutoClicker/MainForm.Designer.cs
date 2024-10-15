@@ -102,9 +102,9 @@
             this.grpMain.Controls.Add(this.grpDelay);
             this.grpMain.Controls.Add(this.grpLocation);
             this.grpMain.Location = new System.Drawing.Point(16, 15);
-            this.grpMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMain.Margin = new System.Windows.Forms.Padding(4);
             this.grpMain.Name = "grpMain";
-            this.grpMain.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMain.Padding = new System.Windows.Forms.Padding(4);
             this.grpMain.Size = new System.Drawing.Size(1000, 359);
             this.grpMain.TabIndex = 0;
             this.grpMain.TabStop = false;
@@ -119,9 +119,9 @@
             this.grpClickType.Controls.Add(this.rdbClickSingleMiddle);
             this.grpClickType.Controls.Add(this.rdbClickSingleLeft);
             this.grpClickType.Location = new System.Drawing.Point(471, 121);
-            this.grpClickType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpClickType.Margin = new System.Windows.Forms.Padding(4);
             this.grpClickType.Name = "grpClickType";
-            this.grpClickType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpClickType.Padding = new System.Windows.Forms.Padding(4);
             this.grpClickType.Size = new System.Drawing.Size(521, 129);
             this.grpClickType.TabIndex = 2;
             this.grpClickType.TabStop = false;
@@ -131,7 +131,7 @@
             // 
             this.rdbClickDoubleRight.AutoSize = true;
             this.rdbClickDoubleRight.Location = new System.Drawing.Point(133, 78);
-            this.rdbClickDoubleRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickDoubleRight.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickDoubleRight.Name = "rdbClickDoubleRight";
             this.rdbClickDoubleRight.Size = new System.Drawing.Size(124, 19);
             this.rdbClickDoubleRight.TabIndex = 5;
@@ -143,7 +143,7 @@
             // 
             this.rdbClickDoubleMiddle.AutoSize = true;
             this.rdbClickDoubleMiddle.Location = new System.Drawing.Point(133, 50);
-            this.rdbClickDoubleMiddle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickDoubleMiddle.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickDoubleMiddle.Name = "rdbClickDoubleMiddle";
             this.rdbClickDoubleMiddle.Size = new System.Drawing.Size(132, 19);
             this.rdbClickDoubleMiddle.TabIndex = 4;
@@ -155,7 +155,7 @@
             // 
             this.rdbClickDoubleLeft.AutoSize = true;
             this.rdbClickDoubleLeft.Location = new System.Drawing.Point(133, 22);
-            this.rdbClickDoubleLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickDoubleLeft.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickDoubleLeft.Name = "rdbClickDoubleLeft";
             this.rdbClickDoubleLeft.Size = new System.Drawing.Size(116, 19);
             this.rdbClickDoubleLeft.TabIndex = 3;
@@ -167,7 +167,7 @@
             // 
             this.rdbClickSingleRight.AutoSize = true;
             this.rdbClickSingleRight.Location = new System.Drawing.Point(8, 78);
-            this.rdbClickSingleRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickSingleRight.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickSingleRight.Name = "rdbClickSingleRight";
             this.rdbClickSingleRight.Size = new System.Drawing.Size(68, 19);
             this.rdbClickSingleRight.TabIndex = 2;
@@ -179,7 +179,7 @@
             // 
             this.rdbClickSingleMiddle.AutoSize = true;
             this.rdbClickSingleMiddle.Location = new System.Drawing.Point(8, 50);
-            this.rdbClickSingleMiddle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickSingleMiddle.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickSingleMiddle.Name = "rdbClickSingleMiddle";
             this.rdbClickSingleMiddle.Size = new System.Drawing.Size(76, 19);
             this.rdbClickSingleMiddle.TabIndex = 1;
@@ -192,7 +192,7 @@
             this.rdbClickSingleLeft.AutoSize = true;
             this.rdbClickSingleLeft.Checked = true;
             this.rdbClickSingleLeft.Location = new System.Drawing.Point(8, 22);
-            this.rdbClickSingleLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbClickSingleLeft.Margin = new System.Windows.Forms.Padding(4);
             this.rdbClickSingleLeft.Name = "rdbClickSingleLeft";
             this.rdbClickSingleLeft.Size = new System.Drawing.Size(60, 19);
             this.rdbClickSingleLeft.TabIndex = 0;
@@ -208,9 +208,9 @@
             this.grpControls.Controls.Add(this.btnHotkeyRemove);
             this.grpControls.Controls.Add(this.txtHotkey);
             this.grpControls.Location = new System.Drawing.Point(471, 22);
-            this.grpControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpControls.Margin = new System.Windows.Forms.Padding(4);
             this.grpControls.Name = "grpControls";
-            this.grpControls.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpControls.Padding = new System.Windows.Forms.Padding(4);
             this.grpControls.Size = new System.Drawing.Size(521, 91);
             this.grpControls.TabIndex = 1;
             this.grpControls.TabStop = false;
@@ -229,7 +229,7 @@
             // btnToggle
             // 
             this.btnToggle.Location = new System.Drawing.Point(410, 53);
-            this.btnToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToggle.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggle.Name = "btnToggle";
             this.btnToggle.Size = new System.Drawing.Size(100, 29);
             this.btnToggle.TabIndex = 3;
@@ -240,7 +240,7 @@
             // btnHotkeyRemove
             // 
             this.btnHotkeyRemove.Location = new System.Drawing.Point(365, 16);
-            this.btnHotkeyRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHotkeyRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnHotkeyRemove.Name = "btnHotkeyRemove";
             this.btnHotkeyRemove.Size = new System.Drawing.Size(145, 29);
             this.btnHotkeyRemove.TabIndex = 2;
@@ -251,7 +251,7 @@
             // txtHotkey
             // 
             this.txtHotkey.Location = new System.Drawing.Point(11, 52);
-            this.txtHotkey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHotkey.Margin = new System.Windows.Forms.Padding(4);
             this.txtHotkey.Name = "txtHotkey";
             this.txtHotkey.Size = new System.Drawing.Size(254, 25);
             this.txtHotkey.TabIndex = 0;
@@ -265,9 +265,9 @@
             this.grpCount.Controls.Add(this.rdbCount);
             this.grpCount.Controls.Add(this.rdbUntilStopped);
             this.grpCount.Location = new System.Drawing.Point(8, 258);
-            this.grpCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCount.Margin = new System.Windows.Forms.Padding(4);
             this.grpCount.Name = "grpCount";
-            this.grpCount.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCount.Padding = new System.Windows.Forms.Padding(4);
             this.grpCount.Size = new System.Drawing.Size(455, 86);
             this.grpCount.TabIndex = 1;
             this.grpCount.TabStop = false;
@@ -286,7 +286,7 @@
             // numCount
             // 
             this.numCount.Location = new System.Drawing.Point(139, 51);
-            this.numCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numCount.Margin = new System.Windows.Forms.Padding(4);
             this.numCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -307,7 +307,7 @@
             this.rdbCount.AutoSize = true;
             this.rdbCount.Checked = true;
             this.rdbCount.Location = new System.Drawing.Point(8, 51);
-            this.rdbCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbCount.Margin = new System.Windows.Forms.Padding(4);
             this.rdbCount.Name = "rdbCount";
             this.rdbCount.Size = new System.Drawing.Size(124, 19);
             this.rdbCount.TabIndex = 1;
@@ -320,7 +320,7 @@
             // 
             this.rdbUntilStopped.AutoSize = true;
             this.rdbUntilStopped.Location = new System.Drawing.Point(8, 24);
-            this.rdbUntilStopped.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbUntilStopped.Margin = new System.Windows.Forms.Padding(4);
             this.rdbUntilStopped.Name = "rdbUntilStopped";
             this.rdbUntilStopped.Size = new System.Drawing.Size(132, 19);
             this.rdbUntilStopped.TabIndex = 0;
@@ -339,9 +339,9 @@
             this.grpDelay.Controls.Add(this.rdbDelayRange);
             this.grpDelay.Controls.Add(this.rdbDelayFixed);
             this.grpDelay.Location = new System.Drawing.Point(471, 258);
-            this.grpDelay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpDelay.Margin = new System.Windows.Forms.Padding(4);
             this.grpDelay.Name = "grpDelay";
-            this.grpDelay.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpDelay.Padding = new System.Windows.Forms.Padding(4);
             this.grpDelay.Size = new System.Drawing.Size(521, 86);
             this.grpDelay.TabIndex = 1;
             this.grpDelay.TabStop = false;
@@ -370,7 +370,7 @@
             // numDelayFixed
             // 
             this.numDelayFixed.Location = new System.Drawing.Point(128, 22);
-            this.numDelayFixed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numDelayFixed.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayFixed.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -399,7 +399,7 @@
             // numDelayRangeMax
             // 
             this.numDelayRangeMax.Location = new System.Drawing.Point(319, 54);
-            this.numDelayRangeMax.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numDelayRangeMax.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayRangeMax.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -418,7 +418,7 @@
             // numDelayRangeMin
             // 
             this.numDelayRangeMin.Location = new System.Drawing.Point(128, 54);
-            this.numDelayRangeMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numDelayRangeMin.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayRangeMin.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -439,7 +439,7 @@
             this.rdbDelayRange.AutoSize = true;
             this.rdbDelayRange.Checked = true;
             this.rdbDelayRange.Location = new System.Drawing.Point(8, 54);
-            this.rdbDelayRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbDelayRange.Margin = new System.Windows.Forms.Padding(4);
             this.rdbDelayRange.Name = "rdbDelayRange";
             this.rdbDelayRange.Size = new System.Drawing.Size(116, 19);
             this.rdbDelayRange.TabIndex = 1;
@@ -452,7 +452,7 @@
             // 
             this.rdbDelayFixed.AutoSize = true;
             this.rdbDelayFixed.Location = new System.Drawing.Point(8, 22);
-            this.rdbDelayFixed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbDelayFixed.Margin = new System.Windows.Forms.Padding(4);
             this.rdbDelayFixed.Name = "rdbDelayFixed";
             this.rdbDelayFixed.Size = new System.Drawing.Size(116, 19);
             this.rdbDelayFixed.TabIndex = 0;
@@ -480,9 +480,9 @@
             this.grpLocation.Controls.Add(this.rdbLocationRandom);
             this.grpLocation.Controls.Add(this.rdbLocationMouse);
             this.grpLocation.Location = new System.Drawing.Point(8, 22);
-            this.grpLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLocation.Margin = new System.Windows.Forms.Padding(4);
             this.grpLocation.Name = "grpLocation";
-            this.grpLocation.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLocation.Padding = new System.Windows.Forms.Padding(4);
             this.grpLocation.Size = new System.Drawing.Size(455, 228);
             this.grpLocation.TabIndex = 0;
             this.grpLocation.TabStop = false;
@@ -491,7 +491,7 @@
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(136, 132);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(100, 29);
             this.btnSelect.TabIndex = 16;
@@ -512,7 +512,7 @@
             // numRandomHeight
             // 
             this.numRandomHeight.Location = new System.Drawing.Point(287, 195);
-            this.numRandomHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numRandomHeight.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomHeight.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -541,7 +541,7 @@
             // numRandomWidth
             // 
             this.numRandomWidth.Location = new System.Drawing.Point(60, 195);
-            this.numRandomWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numRandomWidth.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomWidth.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -570,7 +570,7 @@
             // numRandomY
             // 
             this.numRandomY.Location = new System.Drawing.Point(287, 164);
-            this.numRandomY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numRandomY.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomY.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -594,7 +594,7 @@
             // numRandomX
             // 
             this.numRandomX.Location = new System.Drawing.Point(60, 164);
-            this.numRandomX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numRandomX.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomX.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -618,7 +618,7 @@
             // numFixedY
             // 
             this.numFixedY.Location = new System.Drawing.Point(287, 85);
-            this.numFixedY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numFixedY.Margin = new System.Windows.Forms.Padding(4);
             this.numFixedY.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -642,7 +642,7 @@
             // numFixedX
             // 
             this.numFixedX.Location = new System.Drawing.Point(60, 85);
-            this.numFixedX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numFixedX.Margin = new System.Windows.Forms.Padding(4);
             this.numFixedX.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -658,7 +658,7 @@
             this.rdbLocationRandomArea.AutoSize = true;
             this.rdbLocationRandomArea.Checked = true;
             this.rdbLocationRandomArea.Location = new System.Drawing.Point(8, 136);
-            this.rdbLocationRandomArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbLocationRandomArea.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLocationRandomArea.Name = "rdbLocationRandomArea";
             this.rdbLocationRandomArea.Size = new System.Drawing.Size(116, 19);
             this.rdbLocationRandomArea.TabIndex = 3;
@@ -671,7 +671,7 @@
             // 
             this.rdbLocationFixed.AutoSize = true;
             this.rdbLocationFixed.Location = new System.Drawing.Point(8, 58);
-            this.rdbLocationFixed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbLocationFixed.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLocationFixed.Name = "rdbLocationFixed";
             this.rdbLocationFixed.Size = new System.Drawing.Size(140, 19);
             this.rdbLocationFixed.TabIndex = 2;
@@ -683,7 +683,7 @@
             // 
             this.rdbLocationRandom.AutoSize = true;
             this.rdbLocationRandom.Location = new System.Drawing.Point(182, 22);
-            this.rdbLocationRandom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbLocationRandom.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLocationRandom.Name = "rdbLocationRandom";
             this.rdbLocationRandom.Size = new System.Drawing.Size(156, 19);
             this.rdbLocationRandom.TabIndex = 1;
@@ -695,7 +695,7 @@
             // 
             this.rdbLocationMouse.AutoSize = true;
             this.rdbLocationMouse.Location = new System.Drawing.Point(8, 22);
-            this.rdbLocationMouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbLocationMouse.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLocationMouse.Name = "rdbLocationMouse";
             this.rdbLocationMouse.Size = new System.Drawing.Size(140, 19);
             this.rdbLocationMouse.TabIndex = 0;
@@ -708,16 +708,18 @@
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslStatus});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 389);
+            this.statusStripMain.Location = new System.Drawing.Point(0, 390);
             this.statusStripMain.Name = "statusStripMain";
             this.statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStripMain.Size = new System.Drawing.Size(1032, 26);
+            this.statusStripMain.Size = new System.Drawing.Size(1032, 25);
             this.statusStripMain.TabIndex = 1;
             // 
             // tslStatus
             // 
+            this.tslStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tslStatus.ForeColor = System.Drawing.Color.Tomato;
             this.tslStatus.Name = "tslStatus";
-            this.tslStatus.Size = new System.Drawing.Size(385, 20);
+            this.tslStatus.Size = new System.Drawing.Size(399, 19);
             this.tslStatus.Text = "Not currently doing much helpful here to be honest";
             // 
             // MainForm
@@ -728,7 +730,7 @@
             this.Controls.Add(this.statusStripMain);
             this.Controls.Add(this.grpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Auto Clicker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
