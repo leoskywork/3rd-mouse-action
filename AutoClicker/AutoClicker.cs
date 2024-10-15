@@ -103,6 +103,7 @@ namespace AutoClicker
             //System.Diagnostics.Debug.Print("Click() started");
             SyncSettings();
             int remaining = count;
+            int doneClickCount = 0;
             //System.Diagnostics.Debug.Print("Count type: {0}, count: {1}", countType, count);
             while (countType == CountType.UntilStopped || remaining > 0)
             {
@@ -245,7 +246,7 @@ namespace AutoClicker
                 if (delayType == DelayType.Fixed)
                 {
                     nextDelay = delay;
-                    
+
                 }
                 else
                 {
@@ -255,7 +256,99 @@ namespace AutoClicker
                 Thread.Sleep(nextDelay);
                 //System.Diagnostics.Debug.Print("Had a nap");
                 remaining--;
+                doneClickCount++;
+
+                if (doneClickCount % GlobalHub.TaskUnitCount == 0)
+                {
+                    ScrollMouseMiddleWheel(doneClickCount, remaining);
+                }
             }
+            Finished?.Invoke(this, null);
+        }
+
+        private void ScrollMouseMiddleWheel(int doneClickCount, int remaining)
+        {
+            System.Diagnostics.Debug.WriteLine($"scroll({GlobalHub.MouseScrollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
+            Win32.ScrollWheel(GlobalHub.MouseScrollValue);
+
+            var delayMS = rnd.Next(1220, 1920);
+            System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
+            Thread.Sleep(delayMS);
+        }
+
+
+        private void Click3Locations()
+        {
+            //open button 952,580 90x50
+            //3 height with space: ~380, one space: ~120/124
+            //one button height + one space: ~174
+
+            SyncSettings();
+            int remaining = count;
+            int doneClickCount = 0;
+            List<Win32.INPUT> inputs = new List<Win32.INPUT>();
+
+            while (remaining > 0)
+            {
+                if (!IsAlive) return;
+                SyncSettings();
+
+                int offsetY = 174 * (doneClickCount % GlobalHub.TaskUnitCount);
+                int adjustY = y + offsetY;
+
+                if (locationType == LocationType.RandomRange)
+                {
+                    var randX = rnd.Next(x, x + width);
+                    var randY = rnd.Next(adjustY, adjustY + height);
+
+                    Win32.INPUT input = new Win32.INPUT
+                    {
+                        type = Win32.SendInputEventType.InputMouse,
+                        mi = new Win32.MOUSEINPUT
+                        {
+                            dx = Win32.CalculateAbsoluteCoordinateX(randX),
+                            dy = Win32.CalculateAbsoluteCoordinateY(randY),
+                            dwFlags = Win32.MouseEventFlags.Move | Win32.MouseEventFlags.Absolute
+                        }
+                    };
+                    inputs.Add(input);
+                    System.Diagnostics.Debug.WriteLine($"move to {x},{adjustY} - {randX},{randY} - {input.mi.dx},{input.mi.dy}");
+                }
+                else throw new NotSupportedException();
+
+                if (buttonType == ButtonType.Left)
+                {
+                    Win32.INPUT inputDown = new Win32.INPUT
+                    {
+                        type = Win32.SendInputEventType.InputMouse,
+                        mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftDown }
+                    };
+                    inputs.Add(inputDown);
+                    Win32.INPUT inputUp = new Win32.INPUT
+                    {
+                        type = Win32.SendInputEventType.InputMouse,
+                        mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftUp }
+                    };
+                    inputs.Add(inputUp);
+                }
+                else throw new NotSupportedException();
+
+                Win32.SendInput((uint)inputs.Count, inputs.ToArray(), Marshal.SizeOf(new Win32.INPUT()));
+
+                int nextDelay = rnd.Next(delay, delayRange);
+                NextClick?.Invoke(this, new NextClickEventArgs { NextClick = nextDelay });
+                Thread.Sleep(nextDelay);
+
+                remaining--;
+                doneClickCount++;
+                inputs.Clear();
+
+                if (doneClickCount % GlobalHub.TaskUnitCount == 0 && remaining > 0)
+                {
+                    ScrollMouseMiddleWheel(doneClickCount, remaining);
+                }
+            }
+
             Finished?.Invoke(this, null);
         }
 
@@ -273,7 +366,8 @@ namespace AutoClicker
 
         public void Start()
         {
-            Clicker = new Thread(Click);
+            //Clicker = new Thread(Click);
+            Clicker = new Thread(Click3Locations);
             Clicker.IsBackground = true;
             Clicker.Start();
         }

@@ -18,7 +18,11 @@ namespace AutoClicker
 
         public const int TmpFileMaxCount = 5;
         public const int TmpLogFileMaxCount = 200;
+
         public const int MouseTaskStartDelayMS = 2000;
+        public const int TaskUnitCount = 3;
+        public const int MouseScrollValue = -400;//-200; //up or down
+
 
         public event EventHandler CloseApp;
 

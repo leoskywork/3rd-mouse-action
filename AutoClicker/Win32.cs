@@ -22,7 +22,7 @@ namespace AutoClicker
             RightUp    = 0x0010,
             MiddleDown = 0x0020,
             MiddleUp   = 0x0040,
-            Wheel      = 0x0080,
+            Wheel      = 0x0800,
             XDown      = 0x0100,
             XUp        = 0x0200,
             Absolute   = 0x8000
@@ -84,5 +84,16 @@ namespace AutoClicker
         {
             return (y * 65536) / GetSystemMetrics(SystemMetric.CYScreen);
         }
+
+
+        [DllImport("user32.dll")]
+        private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
+        
+
+        public static void ScrollWheel(int upOrDownValue)
+        {
+            mouse_event((int)MouseEventFlags.Wheel, 0, 0, upOrDownValue, 0); //控制鼠标滑轮滚动，负数代表向下，正数代表向上，如-100代表向下滚动100的y坐标
+        }
+
     }
 }

@@ -246,12 +246,14 @@ namespace AutoClicker
 
             if (Environment.MachineName == "LEO-PC-PRO")
             {
-                this.numRandomX.Value = 817;
-                this.numRandomY.Value = 465;
-                this.numRandomWidth.Value = 73;
-                this.numRandomHeight.Value = 57;
+                this.numRandomX.Value = 952;
+                this.numRandomY.Value = 580;
+                this.numRandomWidth.Value = 90;
+                this.numRandomHeight.Value = 50;
 
                 this.numCount.Value = 3;
+                this.numDelayRangeMin.Value = 1420;
+                this.numDelayRangeMax.Value = 1999;
             }
         }
 
@@ -279,11 +281,13 @@ namespace AutoClicker
 
         private void CountDown(int Milliseconds)
         {
-            for (int i = 0; i < Milliseconds; i += 10)
-            {
-                tslStatus.Text = string.Format("Next click: {0}ms", Milliseconds - i);
-                Thread.Sleep(9);
-            }
+            //for (int i = 0; i < Milliseconds; i += 10)
+            //{
+            //tslStatus.Text = string.Format("Next click: {0}ms", Milliseconds - i);
+            //Thread.Sleep(9);
+            //}
+
+            tslStatus.Text = $"Next click: {Milliseconds}ms";
         }
 
         private void ClickTypeHandler(object sender, EventArgs e)
