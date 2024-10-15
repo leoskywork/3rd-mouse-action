@@ -11,7 +11,8 @@ namespace AutoClicker
     public class GlobalHub
     {
         public const string Version = "1.0";
-        public const string Subversion = "0";
+        public const string Subversion = "1";
+        public const string AppName = "3rdMA";
         public static DateTime ExeCreateDate = DateTime.MinValue;
         public static DateTime ExeUpdateDate = DateTime.MinValue;
 
@@ -196,9 +197,9 @@ namespace AutoClicker
 
 
 
-        public static void SetVersion(this Form form)
+        public static void SetVersionInfo(this Form form)
         {
-            form.Text = $"SBB-V{GlobalHub.Version}.{GlobalHub.Subversion}";
+            form.Text = $"{GlobalHub.AppName}-V{GlobalHub.Version}.{GlobalHub.Subversion}";
         }
 
     }

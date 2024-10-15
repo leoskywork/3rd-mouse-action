@@ -242,12 +242,16 @@ namespace AutoClicker
             clicker.NextClick += HandleNextClick;
             clicker.Finished += HandleFinished;
 
+            this.SetVersionInfo();
+
             if (Environment.MachineName == "LEO-PC-PRO")
             {
                 this.numRandomX.Value = 817;
                 this.numRandomY.Value = 465;
                 this.numRandomWidth.Value = 73;
                 this.numRandomHeight.Value = 57;
+
+                this.numCount.Value = 3;
             }
         }
 
