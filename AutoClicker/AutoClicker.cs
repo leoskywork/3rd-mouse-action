@@ -271,9 +271,16 @@ namespace AutoClicker
             System.Diagnostics.Debug.WriteLine($"scroll({GlobalHub.MouseScrollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
             Win32.ScrollWheel(GlobalHub.MouseScrollValue);
 
-            var delayMS = rnd.Next(1220, 1920);
-            System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
-            Thread.Sleep(delayMS);
+            if (remaining > 0)
+            {
+                var delayMS = rnd.Next(1220, 1920);
+                System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
+                Thread.Sleep(delayMS);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"scroll done, no following task");
+            }
         }
 
 

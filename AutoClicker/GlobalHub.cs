@@ -27,9 +27,21 @@ namespace AutoClicker
         public event EventHandler CloseApp;
 
         public static GlobalHub Default { get; } = new GlobalHub();
-        public bool EnableLogToFile { get; internal set; }
-        public bool IsDebugging { get; internal set; }
+        public bool EnableLogToFile { get; set; }
+        public bool IsDebugging { get; set; }
 
+
+        public int RandomAreaPointX { get; set; }
+        public int RandomAreaPointY { get; set; }
+        public int RandomAreaSizeWidth { get; set; }
+        public int RandomAreaSizeHeight { get; set; }
+
+        public int FixedClickCount { get; set; }
+
+        public int NextClickDelayMinMS { get; set; }
+        public int NextClickDelayMaxMS { get; set; }
+        public int AfterWheelRollDelayMinMS { get; set; }
+        public int AfterWheelRollDelayMaxMS { get; set; }
 
         private GlobalHub()
         {
@@ -138,7 +150,7 @@ namespace AutoClicker
                 RunOnMainAsync(form, action);
             });
         }
-        
+
 
         public static void DisableLabelShorterTime(this Form form, Label control)
         {
