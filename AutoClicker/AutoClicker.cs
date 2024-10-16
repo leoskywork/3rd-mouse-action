@@ -91,7 +91,8 @@ namespace AutoClicker
 
         public class NextClickEventArgs : EventArgs
         {
-            public int NextClick;
+            public int NextClickDelayMS;
+            public string Message;
         }
 
         public event EventHandler<NextClickEventArgs> NextClick;
@@ -252,7 +253,7 @@ namespace AutoClicker
                 {
                     nextDelay = rnd.Next(delay, delayRange);
                 }
-                NextClick?.Invoke(this, new NextClickEventArgs { NextClick = nextDelay });
+                NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay });
                 Thread.Sleep(nextDelay);
                 //System.Diagnostics.Debug.Print("Had a nap");
                 remaining--;
@@ -285,7 +286,7 @@ namespace AutoClicker
         }
 
 
-        private void Click3Locations()
+        private void ClickToOpenGameRewardBoxes()
         {
             //open button 952,580 90x50
             //3 height with space: ~380, one space: ~120/124
@@ -343,13 +344,13 @@ namespace AutoClicker
 
                 Win32.SendInput((uint)inputs.Count, inputs.ToArray(), Marshal.SizeOf(new Win32.INPUT()));
 
-                int nextDelay = rnd.Next(delay, delayRange);
-                NextClick?.Invoke(this, new NextClickEventArgs { NextClick = nextDelay });
-                Thread.Sleep(nextDelay);
-
                 remaining--;
                 doneClickCount++;
                 inputs.Clear();
+
+                int nextDelay = rnd.Next(delay, delayRange);
+                NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay, Message = $" next no. #{doneClickCount + 1}" });
+                Thread.Sleep(nextDelay);
 
                 if (doneClickCount % GlobalHub.TaskUnitCount == 0 && remaining > 0)
                 {
@@ -375,7 +376,7 @@ namespace AutoClicker
         public void Start()
         {
             //Clicker = new Thread(Click);
-            Clicker = new Thread(Click3Locations);
+            Clicker = new Thread(ClickToOpenGameRewardBoxes);
             Clicker.IsBackground = true;
             Clicker.Start();
         }

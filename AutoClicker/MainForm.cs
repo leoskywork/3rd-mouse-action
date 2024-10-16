@@ -55,27 +55,21 @@ namespace AutoClicker
 
         private void HandleNextClick(object sender, AutoClicker.NextClickEventArgs e)
         {
-            if (countdownThread == null)
-            {
-                countdownThread = new Thread(() => CountDown(e.NextClick));
-                countdownThread.Start();
-            }
-            else
+            if (countdownThread != null)
             {
                 countdownThread.Abort();
-                countdownThread = new Thread(() => CountDown(e.NextClick));
-                countdownThread.Start();
             }
 
-            
+            countdownThread = new Thread(() => CountDown(e.NextClickDelayMS, e.Message));
+            countdownThread.Start();
         }
 
         private void HandleFinished(object sender, EventArgs e)
         {
-            EnableControls();
+            EnableControls("done");
         }
 
-        private void CountDown(int Milliseconds)
+        private void CountDown(int Milliseconds, string message)
         {
             //for (int i = 0; i < Milliseconds; i += 10)
             //{
@@ -83,7 +77,7 @@ namespace AutoClicker
             //Thread.Sleep(9);
             //}
 
-            tslStatus.Text = $"Next click: {Milliseconds}ms";
+            tslStatus.Text = $"Next click: {Milliseconds}ms, {message}";
         }
 
         private void ClickTypeHandler(object sender, EventArgs e)
@@ -257,24 +251,22 @@ namespace AutoClicker
             this.RunOnMainAsync(() =>
             {
                 Cursor = Cursors.Default;
-                this.StartOrStopTask(isWaitingToRun);
+
+                if (isWaitingToRun)
+                {
+                    clicker.Start();
+                    DisableControls();
+                }
+                else
+                {
+                    clicker.Stop();
+                    countdownThread.Abort();
+                    EnableControls("task abort");
+                }
             }, GlobalHub.MouseTaskStartDelayMS);
         }
 
-        private void StartOrStopTask(bool isWaitingToRun)
-        {
-            if (isWaitingToRun)
-            {
-                clicker.Start();
-                DisableControls();
-            }
-            else
-            {
-                clicker.Stop();
-                countdownThread.Abort();
-                EnableControls();
-            }
-        }
+    
 
         delegate void SetEnabledCallback(Control Control, bool Enabled);
         private void SetEnabled(Control Control, bool Enabled)
@@ -304,9 +296,9 @@ namespace AutoClicker
             }
         }
 
-        private void EnableControls()
+        private void EnableControls(string message)
         {
-            tslStatus.Text = "Not currently doing much helpful here to be honest";
+            tslStatus.Text = message;
             SetEnabled(grpClickType, true);
             SetEnabled(grpLocation, true);
             SetEnabled(grpDelay, true);
