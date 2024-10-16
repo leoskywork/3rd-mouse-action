@@ -399,7 +399,6 @@ namespace AutoClicker
 
         private void ReadFromHubSettings()
         {
-
             this.numRandomX.Value = GlobalHub.Default.RandomAreaPointX;
             this.numRandomY.Value = GlobalHub.Default.RandomAreaPointY;
             this.numRandomWidth.Value = GlobalHub.Default.RandomAreaSizeWidth;
@@ -407,6 +406,8 @@ namespace AutoClicker
             this.numCount.Value = GlobalHub.Default.FixedClickCount;
             this.numDelayRangeMin.Value = GlobalHub.Default.NextClickDelayMinMS;
             this.numDelayRangeMax.Value = GlobalHub.Default.NextClickDelayMaxMS;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new System.Drawing.Point(GlobalHub.Default.LastCloseLocationX, GlobalHub.Default.LastCloseLocationY);
         }
 
         private void WriteToHubSettings()
@@ -418,6 +419,8 @@ namespace AutoClicker
             GlobalHub.Default.FixedClickCount = (int)this.numCount.Value;
             GlobalHub.Default.NextClickDelayMinMS = (int)this.numDelayRangeMin.Value;
             GlobalHub.Default.NextClickDelayMaxMS = (int)this.numDelayRangeMax.Value;
+            GlobalHub.Default.LastCloseLocationX = this.Location.X;
+            GlobalHub.Default.LastCloseLocationY = this.Location.Y;
         }
 
 

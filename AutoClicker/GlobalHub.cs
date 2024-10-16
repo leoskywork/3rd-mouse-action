@@ -43,6 +43,9 @@ namespace AutoClicker
         public int AfterWheelRollDelayMinMS { get; set; }
         public int AfterWheelRollDelayMaxMS { get; set; }
 
+        public int LastCloseLocationX { get; set; }
+        public int LastCloseLocationY { get; set; }
+
         private GlobalHub()
         {
 
