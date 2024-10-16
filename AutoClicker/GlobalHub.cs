@@ -12,16 +12,16 @@ namespace AutoClicker
     {
         public const string Version = "1.0";
         public const string Subversion = "1";
-        public const string AppName = "3rdMA";
+        public const string AppName = "MAMaster";
         public static DateTime ExeCreateDate = DateTime.MinValue;
         public static DateTime ExeUpdateDate = DateTime.MinValue;
 
         public const int TmpFileMaxCount = 5;
         public const int TmpLogFileMaxCount = 200;
 
-        public const int MouseTaskStartDelayMS = 2000;
+        public const int MouseTaskStartDelayMS = 1000;//2000;
         public const int TaskUnitCount = 3;
-        public const int MouseScrollValue = -400;//-200; //up or down
+        //public const int MouseScrollValue = -400;//-200; //up or down
 
 
         public event EventHandler CloseApp;
@@ -45,6 +45,10 @@ namespace AutoClicker
 
         public int LastCloseLocationX { get; set; }
         public int LastCloseLocationY { get; set; }
+
+        public int GameRewardBoxGap { get; set; }
+
+        public int GameRewardWheelRollValue { get; set; }
 
         private GlobalHub()
         {

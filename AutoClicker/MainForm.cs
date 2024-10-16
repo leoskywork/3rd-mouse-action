@@ -250,10 +250,15 @@ namespace AutoClicker
 
             if (isWaitingToRun)
             {
-                this.tslStatus.Text = $"task going to start in {GlobalHub.MouseTaskStartDelayMS}ms...";
+                this.tslStatus.Text = $"start click in {GlobalHub.MouseTaskStartDelayMS}ms...";
+                Cursor = Cursors.WaitCursor;
             }
 
-            this.RunOnMainAsync(() => this.StartOrStopTask(isWaitingToRun), GlobalHub.MouseTaskStartDelayMS);
+            this.RunOnMainAsync(() =>
+            {
+                Cursor = Cursors.Default;
+                this.StartOrStopTask(isWaitingToRun);
+            }, GlobalHub.MouseTaskStartDelayMS);
         }
 
         private void StartOrStopTask(bool isWaitingToRun)
@@ -312,6 +317,11 @@ namespace AutoClicker
             //grpDelay.Enabled = true;
             //grpCount.Enabled = true;
             //btnToggle.Text = "Start";
+
+            this.RunOnMainAsync(() =>
+            {
+                this.groupBoxOpenGameReward.Enabled = true;
+            });
         }
 
         private void DisableControls()
@@ -326,6 +336,11 @@ namespace AutoClicker
             //grpDelay.Enabled = false;
             //grpCount.Enabled = false;
             //btnToggle.Text = "Stop";
+
+            this.RunOnMainAsync(() =>
+            {
+                this.groupBoxOpenGameReward.Enabled = false;
+            });
         }
 
         protected override void WndProc(ref Message m)
@@ -408,6 +423,8 @@ namespace AutoClicker
             this.numDelayRangeMax.Value = GlobalHub.Default.NextClickDelayMaxMS;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(GlobalHub.Default.LastCloseLocationX, GlobalHub.Default.LastCloseLocationY);
+            this.numericUpDownGameBoxGap.Value = GlobalHub.Default.GameRewardBoxGap;
+            this.numericUpDownWheelRoll.Value = GlobalHub.Default.GameRewardWheelRollValue;
         }
 
         private void WriteToHubSettings()
@@ -421,6 +438,8 @@ namespace AutoClicker
             GlobalHub.Default.NextClickDelayMaxMS = (int)this.numDelayRangeMax.Value;
             GlobalHub.Default.LastCloseLocationX = this.Location.X;
             GlobalHub.Default.LastCloseLocationY = this.Location.Y;
+            GlobalHub.Default.GameRewardBoxGap = (int)this.numericUpDownGameBoxGap.Value;
+            GlobalHub.Default.GameRewardWheelRollValue = (int)this.numericUpDownWheelRoll.Value;
         }
 
 

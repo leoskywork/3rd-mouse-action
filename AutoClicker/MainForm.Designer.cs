@@ -75,6 +75,11 @@
             this.rdbLocationMouse = new System.Windows.Forms.RadioButton();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDownGameBoxGap = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxOpenGameReward = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDownWheelRoll = new System.Windows.Forms.NumericUpDown();
             this.grpMain.SuspendLayout();
             this.grpClickType.SuspendLayout();
             this.grpControls.SuspendLayout();
@@ -92,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numFixedY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFixedX)).BeginInit();
             this.statusStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGameBoxGap)).BeginInit();
+            this.groupBoxOpenGameReward.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).BeginInit();
             this.SuspendLayout();
             // 
             // grpMain
@@ -105,7 +113,7 @@
             this.grpMain.Margin = new System.Windows.Forms.Padding(4);
             this.grpMain.Name = "grpMain";
             this.grpMain.Padding = new System.Windows.Forms.Padding(4);
-            this.grpMain.Size = new System.Drawing.Size(1000, 359);
+            this.grpMain.Size = new System.Drawing.Size(699, 359);
             this.grpMain.TabIndex = 0;
             this.grpMain.TabStop = false;
             this.grpMain.Text = "Click details";
@@ -118,11 +126,11 @@
             this.grpClickType.Controls.Add(this.rdbClickSingleRight);
             this.grpClickType.Controls.Add(this.rdbClickSingleMiddle);
             this.grpClickType.Controls.Add(this.rdbClickSingleLeft);
-            this.grpClickType.Location = new System.Drawing.Point(471, 121);
+            this.grpClickType.Location = new System.Drawing.Point(343, 121);
             this.grpClickType.Margin = new System.Windows.Forms.Padding(4);
             this.grpClickType.Name = "grpClickType";
             this.grpClickType.Padding = new System.Windows.Forms.Padding(4);
-            this.grpClickType.Size = new System.Drawing.Size(521, 129);
+            this.grpClickType.Size = new System.Drawing.Size(335, 129);
             this.grpClickType.TabIndex = 2;
             this.grpClickType.TabStop = false;
             this.grpClickType.Text = "Click type";
@@ -204,14 +212,13 @@
             // grpControls
             // 
             this.grpControls.Controls.Add(this.label11);
-            this.grpControls.Controls.Add(this.btnToggle);
             this.grpControls.Controls.Add(this.btnHotkeyRemove);
             this.grpControls.Controls.Add(this.txtHotkey);
-            this.grpControls.Location = new System.Drawing.Point(471, 22);
+            this.grpControls.Location = new System.Drawing.Point(343, 22);
             this.grpControls.Margin = new System.Windows.Forms.Padding(4);
             this.grpControls.Name = "grpControls";
             this.grpControls.Padding = new System.Windows.Forms.Padding(4);
-            this.grpControls.Size = new System.Drawing.Size(521, 91);
+            this.grpControls.Size = new System.Drawing.Size(335, 91);
             this.grpControls.TabIndex = 1;
             this.grpControls.TabStop = false;
             this.grpControls.Text = "Controls";
@@ -228,7 +235,8 @@
             // 
             // btnToggle
             // 
-            this.btnToggle.Location = new System.Drawing.Point(410, 53);
+            this.btnToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggle.Location = new System.Drawing.Point(605, 501);
             this.btnToggle.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggle.Name = "btnToggle";
             this.btnToggle.Size = new System.Drawing.Size(100, 29);
@@ -239,10 +247,10 @@
             // 
             // btnHotkeyRemove
             // 
-            this.btnHotkeyRemove.Location = new System.Drawing.Point(365, 16);
+            this.btnHotkeyRemove.Location = new System.Drawing.Point(145, 17);
             this.btnHotkeyRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnHotkeyRemove.Name = "btnHotkeyRemove";
-            this.btnHotkeyRemove.Size = new System.Drawing.Size(145, 29);
+            this.btnHotkeyRemove.Size = new System.Drawing.Size(120, 29);
             this.btnHotkeyRemove.TabIndex = 2;
             this.btnHotkeyRemove.Text = "Clear Hotkey";
             this.btnHotkeyRemove.UseVisualStyleBackColor = true;
@@ -268,7 +276,7 @@
             this.grpCount.Margin = new System.Windows.Forms.Padding(4);
             this.grpCount.Name = "grpCount";
             this.grpCount.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCount.Size = new System.Drawing.Size(455, 86);
+            this.grpCount.Size = new System.Drawing.Size(308, 86);
             this.grpCount.TabIndex = 1;
             this.grpCount.TabStop = false;
             this.grpCount.Text = "Count";
@@ -276,7 +284,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(307, 54);
+            this.label1.Location = new System.Drawing.Point(238, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 15);
@@ -293,7 +301,7 @@
             0,
             0});
             this.numCount.Name = "numCount";
-            this.numCount.Size = new System.Drawing.Size(160, 25);
+            this.numCount.Size = new System.Drawing.Size(80, 25);
             this.numCount.TabIndex = 2;
             this.numCount.Value = new decimal(new int[] {
             10,
@@ -338,11 +346,11 @@
             this.grpDelay.Controls.Add(this.numDelayRangeMin);
             this.grpDelay.Controls.Add(this.rdbDelayRange);
             this.grpDelay.Controls.Add(this.rdbDelayFixed);
-            this.grpDelay.Location = new System.Drawing.Point(471, 258);
+            this.grpDelay.Location = new System.Drawing.Point(343, 258);
             this.grpDelay.Margin = new System.Windows.Forms.Padding(4);
             this.grpDelay.Name = "grpDelay";
             this.grpDelay.Padding = new System.Windows.Forms.Padding(4);
-            this.grpDelay.Size = new System.Drawing.Size(521, 86);
+            this.grpDelay.Size = new System.Drawing.Size(335, 86);
             this.grpDelay.TabIndex = 1;
             this.grpDelay.TabStop = false;
             this.grpDelay.Text = "Delay";
@@ -350,7 +358,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(487, 56);
+            this.label10.Location = new System.Drawing.Point(292, 57);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(23, 15);
@@ -360,7 +368,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(296, 25);
+            this.label9.Location = new System.Drawing.Point(179, 20);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(23, 15);
@@ -369,7 +377,7 @@
             // 
             // numDelayFixed
             // 
-            this.numDelayFixed.Location = new System.Drawing.Point(128, 22);
+            this.numDelayFixed.Location = new System.Drawing.Point(89, 18);
             this.numDelayFixed.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayFixed.Maximum = new decimal(new int[] {
             1000000,
@@ -377,7 +385,7 @@
             0,
             0});
             this.numDelayFixed.Name = "numDelayFixed";
-            this.numDelayFixed.Size = new System.Drawing.Size(160, 25);
+            this.numDelayFixed.Size = new System.Drawing.Size(80, 25);
             this.numDelayFixed.TabIndex = 11;
             this.numDelayFixed.Value = new decimal(new int[] {
             100,
@@ -389,7 +397,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 56);
+            this.label8.Location = new System.Drawing.Point(179, 57);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 15);
@@ -398,7 +406,7 @@
             // 
             // numDelayRangeMax
             // 
-            this.numDelayRangeMax.Location = new System.Drawing.Point(319, 54);
+            this.numDelayRangeMax.Location = new System.Drawing.Point(205, 52);
             this.numDelayRangeMax.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayRangeMax.Maximum = new decimal(new int[] {
             1000000,
@@ -406,7 +414,7 @@
             0,
             0});
             this.numDelayRangeMax.Name = "numDelayRangeMax";
-            this.numDelayRangeMax.Size = new System.Drawing.Size(160, 25);
+            this.numDelayRangeMax.Size = new System.Drawing.Size(80, 25);
             this.numDelayRangeMax.TabIndex = 9;
             this.numDelayRangeMax.Value = new decimal(new int[] {
             620,
@@ -417,7 +425,7 @@
             // 
             // numDelayRangeMin
             // 
-            this.numDelayRangeMin.Location = new System.Drawing.Point(128, 54);
+            this.numDelayRangeMin.Location = new System.Drawing.Point(89, 52);
             this.numDelayRangeMin.Margin = new System.Windows.Forms.Padding(4);
             this.numDelayRangeMin.Maximum = new decimal(new int[] {
             1000000,
@@ -425,7 +433,7 @@
             0,
             0});
             this.numDelayRangeMin.Name = "numDelayRangeMin";
-            this.numDelayRangeMin.Size = new System.Drawing.Size(160, 25);
+            this.numDelayRangeMin.Size = new System.Drawing.Size(80, 25);
             this.numDelayRangeMin.TabIndex = 8;
             this.numDelayRangeMin.Value = new decimal(new int[] {
             320,
@@ -441,10 +449,10 @@
             this.rdbDelayRange.Location = new System.Drawing.Point(8, 54);
             this.rdbDelayRange.Margin = new System.Windows.Forms.Padding(4);
             this.rdbDelayRange.Name = "rdbDelayRange";
-            this.rdbDelayRange.Size = new System.Drawing.Size(116, 19);
+            this.rdbDelayRange.Size = new System.Drawing.Size(68, 19);
             this.rdbDelayRange.TabIndex = 1;
             this.rdbDelayRange.TabStop = true;
-            this.rdbDelayRange.Text = "Delay range";
+            this.rdbDelayRange.Text = "Range";
             this.rdbDelayRange.UseVisualStyleBackColor = true;
             this.rdbDelayRange.CheckedChanged += new System.EventHandler(this.DelayHandler);
             // 
@@ -454,9 +462,9 @@
             this.rdbDelayFixed.Location = new System.Drawing.Point(8, 22);
             this.rdbDelayFixed.Margin = new System.Windows.Forms.Padding(4);
             this.rdbDelayFixed.Name = "rdbDelayFixed";
-            this.rdbDelayFixed.Size = new System.Drawing.Size(116, 19);
+            this.rdbDelayFixed.Size = new System.Drawing.Size(68, 19);
             this.rdbDelayFixed.TabIndex = 0;
-            this.rdbDelayFixed.Text = "Fixed delay";
+            this.rdbDelayFixed.Text = "Fixed";
             this.rdbDelayFixed.UseVisualStyleBackColor = true;
             this.rdbDelayFixed.CheckedChanged += new System.EventHandler(this.DelayHandler);
             // 
@@ -483,14 +491,14 @@
             this.grpLocation.Margin = new System.Windows.Forms.Padding(4);
             this.grpLocation.Name = "grpLocation";
             this.grpLocation.Padding = new System.Windows.Forms.Padding(4);
-            this.grpLocation.Size = new System.Drawing.Size(455, 228);
+            this.grpLocation.Size = new System.Drawing.Size(308, 228);
             this.grpLocation.TabIndex = 0;
             this.grpLocation.TabStop = false;
             this.grpLocation.Text = "Location";
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(136, 132);
+            this.btnSelect.Location = new System.Drawing.Point(136, 130);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(100, 29);
@@ -502,7 +510,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(228, 198);
+            this.label6.Location = new System.Drawing.Point(145, 198);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 15);
@@ -511,7 +519,7 @@
             // 
             // numRandomHeight
             // 
-            this.numRandomHeight.Location = new System.Drawing.Point(287, 195);
+            this.numRandomHeight.Location = new System.Drawing.Point(204, 195);
             this.numRandomHeight.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomHeight.Maximum = new decimal(new int[] {
             1000000,
@@ -519,7 +527,7 @@
             0,
             0});
             this.numRandomHeight.Name = "numRandomHeight";
-            this.numRandomHeight.Size = new System.Drawing.Size(160, 25);
+            this.numRandomHeight.Size = new System.Drawing.Size(80, 25);
             this.numRandomHeight.TabIndex = 14;
             this.numRandomHeight.Value = new decimal(new int[] {
             100,
@@ -548,7 +556,7 @@
             0,
             0});
             this.numRandomWidth.Name = "numRandomWidth";
-            this.numRandomWidth.Size = new System.Drawing.Size(160, 25);
+            this.numRandomWidth.Size = new System.Drawing.Size(80, 25);
             this.numRandomWidth.TabIndex = 12;
             this.numRandomWidth.Value = new decimal(new int[] {
             100,
@@ -560,7 +568,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(263, 166);
+            this.label4.Location = new System.Drawing.Point(180, 166);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 15);
@@ -569,7 +577,7 @@
             // 
             // numRandomY
             // 
-            this.numRandomY.Location = new System.Drawing.Point(287, 164);
+            this.numRandomY.Location = new System.Drawing.Point(204, 164);
             this.numRandomY.Margin = new System.Windows.Forms.Padding(4);
             this.numRandomY.Maximum = new decimal(new int[] {
             1000000,
@@ -577,7 +585,7 @@
             0,
             0});
             this.numRandomY.Name = "numRandomY";
-            this.numRandomY.Size = new System.Drawing.Size(160, 25);
+            this.numRandomY.Size = new System.Drawing.Size(80, 25);
             this.numRandomY.TabIndex = 10;
             this.numRandomY.ValueChanged += new System.EventHandler(this.LocationHandler);
             // 
@@ -601,14 +609,14 @@
             0,
             0});
             this.numRandomX.Name = "numRandomX";
-            this.numRandomX.Size = new System.Drawing.Size(160, 25);
+            this.numRandomX.Size = new System.Drawing.Size(80, 25);
             this.numRandomX.TabIndex = 8;
             this.numRandomX.ValueChanged += new System.EventHandler(this.LocationHandler);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(263, 88);
+            this.label3.Location = new System.Drawing.Point(180, 88);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 15);
@@ -617,7 +625,7 @@
             // 
             // numFixedY
             // 
-            this.numFixedY.Location = new System.Drawing.Point(287, 85);
+            this.numFixedY.Location = new System.Drawing.Point(204, 85);
             this.numFixedY.Margin = new System.Windows.Forms.Padding(4);
             this.numFixedY.Maximum = new decimal(new int[] {
             1000000,
@@ -625,7 +633,7 @@
             0,
             0});
             this.numFixedY.Name = "numFixedY";
-            this.numFixedY.Size = new System.Drawing.Size(160, 25);
+            this.numFixedY.Size = new System.Drawing.Size(80, 25);
             this.numFixedY.TabIndex = 6;
             this.numFixedY.ValueChanged += new System.EventHandler(this.LocationHandler);
             // 
@@ -649,7 +657,7 @@
             0,
             0});
             this.numFixedX.Name = "numFixedX";
-            this.numFixedX.Size = new System.Drawing.Size(160, 25);
+            this.numFixedX.Size = new System.Drawing.Size(80, 25);
             this.numFixedX.TabIndex = 4;
             this.numFixedX.ValueChanged += new System.EventHandler(this.LocationHandler);
             // 
@@ -682,12 +690,12 @@
             // rdbLocationRandom
             // 
             this.rdbLocationRandom.AutoSize = true;
-            this.rdbLocationRandom.Location = new System.Drawing.Point(182, 22);
+            this.rdbLocationRandom.Location = new System.Drawing.Point(180, 22);
             this.rdbLocationRandom.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLocationRandom.Name = "rdbLocationRandom";
-            this.rdbLocationRandom.Size = new System.Drawing.Size(156, 19);
+            this.rdbLocationRandom.Size = new System.Drawing.Size(76, 19);
             this.rdbLocationRandom.TabIndex = 1;
-            this.rdbLocationRandom.Text = "Random on screen";
+            this.rdbLocationRandom.Text = "Random";
             this.rdbLocationRandom.UseVisualStyleBackColor = true;
             this.rdbLocationRandom.CheckedChanged += new System.EventHandler(this.LocationHandler);
             // 
@@ -708,10 +716,10 @@
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslStatus});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 390);
+            this.statusStripMain.Location = new System.Drawing.Point(0, 547);
             this.statusStripMain.Name = "statusStripMain";
             this.statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStripMain.Size = new System.Drawing.Size(1032, 25);
+            this.statusStripMain.Size = new System.Drawing.Size(729, 25);
             this.statusStripMain.TabIndex = 1;
             // 
             // tslStatus
@@ -719,15 +727,92 @@
             this.tslStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.tslStatus.ForeColor = System.Drawing.Color.Tomato;
             this.tslStatus.Name = "tslStatus";
-            this.tslStatus.Size = new System.Drawing.Size(399, 19);
-            this.tslStatus.Text = "Not currently doing much helpful here to be honest";
+            this.tslStatus.Size = new System.Drawing.Size(41, 19);
+            this.tslStatus.Text = "msg";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(135, 15);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Box vertical gap";
+            // 
+            // numericUpDownGameBoxGap
+            // 
+            this.numericUpDownGameBoxGap.Location = new System.Drawing.Point(188, 33);
+            this.numericUpDownGameBoxGap.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownGameBoxGap.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownGameBoxGap.Name = "numericUpDownGameBoxGap";
+            this.numericUpDownGameBoxGap.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownGameBoxGap.TabIndex = 5;
+            this.numericUpDownGameBoxGap.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // groupBoxOpenGameReward
+            // 
+            this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownWheelRoll);
+            this.groupBoxOpenGameReward.Controls.Add(this.label13);
+            this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownGameBoxGap);
+            this.groupBoxOpenGameReward.Controls.Add(this.label12);
+            this.groupBoxOpenGameReward.Location = new System.Drawing.Point(16, 386);
+            this.groupBoxOpenGameReward.Name = "groupBoxOpenGameReward";
+            this.groupBoxOpenGameReward.Size = new System.Drawing.Size(316, 143);
+            this.groupBoxOpenGameReward.TabIndex = 6;
+            this.groupBoxOpenGameReward.TabStop = false;
+            this.groupBoxOpenGameReward.Text = "Open reward box";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 98);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(135, 15);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Wheel roll value";
+            // 
+            // numericUpDownWheelRoll
+            // 
+            this.numericUpDownWheelRoll.Location = new System.Drawing.Point(187, 96);
+            this.numericUpDownWheelRoll.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownWheelRoll.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownWheelRoll.Name = "numericUpDownWheelRoll";
+            this.numericUpDownWheelRoll.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownWheelRoll.TabIndex = 7;
+            this.numericUpDownWheelRoll.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 415);
+            this.ClientSize = new System.Drawing.Size(729, 572);
+            this.Controls.Add(this.groupBoxOpenGameReward);
             this.Controls.Add(this.statusStripMain);
+            this.Controls.Add(this.btnToggle);
             this.Controls.Add(this.grpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -758,6 +843,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numFixedX)).EndInit();
             this.statusStripMain.ResumeLayout(false);
             this.statusStripMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGameBoxGap)).EndInit();
+            this.groupBoxOpenGameReward.ResumeLayout(false);
+            this.groupBoxOpenGameReward.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -812,6 +901,11 @@
         private System.Windows.Forms.Button btnToggle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown numericUpDownGameBoxGap;
+        private System.Windows.Forms.GroupBox groupBoxOpenGameReward;
+        private System.Windows.Forms.NumericUpDown numericUpDownWheelRoll;
+        private System.Windows.Forms.Label label13;
     }
 }
 

@@ -268,8 +268,9 @@ namespace AutoClicker
 
         private void ScrollMouseMiddleWheel(int doneClickCount, int remaining)
         {
-            System.Diagnostics.Debug.WriteLine($"scroll({GlobalHub.MouseScrollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
-            Win32.ScrollWheel(GlobalHub.MouseScrollValue);
+            var rollValue = GlobalHub.Default.GameRewardWheelRollValue;
+            System.Diagnostics.Debug.WriteLine($"scroll({rollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
+            Win32.ScrollWheel(rollValue);
 
             if (remaining > 0)
             {
@@ -300,7 +301,7 @@ namespace AutoClicker
                 if (!IsAlive) return;
                 SyncSettings();
 
-                int offsetY = 174 * (doneClickCount % GlobalHub.TaskUnitCount);
+                int offsetY = GlobalHub.Default.GameRewardBoxGap * (doneClickCount % GlobalHub.TaskUnitCount);
                 int adjustY = y + offsetY;
 
                 if (locationType == LocationType.RandomRange)

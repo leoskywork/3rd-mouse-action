@@ -142,5 +142,29 @@ namespace AutoClicker.Properties {
                 this["LastCloseLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int GameRewardBoxGap {
+            get {
+                return ((int)(this["GameRewardBoxGap"]));
+            }
+            set {
+                this["GameRewardBoxGap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-200")]
+        public int GameRewardWheelRollValue {
+            get {
+                return ((int)(this["GameRewardWheelRollValue"]));
+            }
+            set {
+                this["GameRewardWheelRollValue"] = value;
+            }
+        }
     }
 }

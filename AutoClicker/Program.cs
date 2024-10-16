@@ -31,6 +31,8 @@ namespace AutoClicker
             GlobalHub.Default.EnableLogToFile = Properties.Settings.Default.EnableLogToFile;
             GlobalHub.Default.LastCloseLocationX = Properties.Settings.Default.LastCloseLocation.X;
             GlobalHub.Default.LastCloseLocationY = Properties.Settings.Default.LastCloseLocation.Y;
+            GlobalHub.Default.GameRewardBoxGap = Properties.Settings.Default.GameRewardBoxGap;
+            GlobalHub.Default.GameRewardWheelRollValue = Properties.Settings.Default.GameRewardWheelRollValue;
 
             GlobalHub.Default.RandomAreaPointX = Properties.Settings.Default.RandomAreaPoint.X;
             GlobalHub.Default.RandomAreaPointY = Properties.Settings.Default.RandomAreaPoint.Y;
@@ -53,6 +55,8 @@ namespace AutoClicker
                 Properties.Settings.Default.IsDebugging = GlobalHub.Default.IsDebugging;
                 Properties.Settings.Default.EnableLogToFile = GlobalHub.Default.EnableLogToFile;
                 Properties.Settings.Default.LastCloseLocation = new System.Drawing.Point(GlobalHub.Default.LastCloseLocationX, GlobalHub.Default.LastCloseLocationY);
+                Properties.Settings.Default.GameRewardBoxGap = GlobalHub.Default.GameRewardBoxGap;
+                Properties.Settings.Default.GameRewardWheelRollValue = GlobalHub.Default.GameRewardWheelRollValue;
 
                 Properties.Settings.Default.RandomAreaPoint = new System.Drawing.Point(GlobalHub.Default.RandomAreaPointX, GlobalHub.Default.RandomAreaPointY);
                 Properties.Settings.Default.RandomAreaSize = new System.Drawing.Size(GlobalHub.Default.RandomAreaSizeWidth, GlobalHub.Default.RandomAreaSizeHeight);
