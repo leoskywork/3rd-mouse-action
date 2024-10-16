@@ -325,22 +325,31 @@ namespace AutoClicker
                 }
                 else throw new NotSupportedException();
 
-                if (buttonType == ButtonType.Left)
+                for (int i = 0; i < (doubleClick ? 2 : 1); i++)
                 {
-                    Win32.INPUT inputDown = new Win32.INPUT
+                    // Add a delay if it's a double click.
+                    if (i == 1)
                     {
-                        type = Win32.SendInputEventType.InputMouse,
-                        mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftDown }
-                    };
-                    inputs.Add(inputDown);
-                    Win32.INPUT inputUp = new Win32.INPUT
+                        Thread.Sleep(50 + rnd.Next(10, 90));
+                    }
+
+                    if (buttonType == ButtonType.Left)
                     {
-                        type = Win32.SendInputEventType.InputMouse,
-                        mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftUp }
-                    };
-                    inputs.Add(inputUp);
+                        Win32.INPUT inputDown = new Win32.INPUT
+                        {
+                            type = Win32.SendInputEventType.InputMouse,
+                            mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftDown }
+                        };
+                        inputs.Add(inputDown);
+                        Win32.INPUT inputUp = new Win32.INPUT
+                        {
+                            type = Win32.SendInputEventType.InputMouse,
+                            mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftUp }
+                        };
+                        inputs.Add(inputUp);
+                    }
+                    else throw new NotSupportedException();
                 }
-                else throw new NotSupportedException();
 
                 Win32.SendInput((uint)inputs.Count, inputs.ToArray(), Marshal.SizeOf(new Win32.INPUT()));
 
