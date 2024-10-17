@@ -267,26 +267,6 @@ namespace AutoClicker
             Finished?.Invoke(this, null);
         }
 
-        private void ScrollMouseMiddleWheel(int doneClickCount, int remaining)
-        {
-            var rollValue = GlobalHub.Default.GameRewardWheelRollValue;
-            System.Diagnostics.Debug.WriteLine($"scroll({rollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
-            Win32.ScrollWheel(rollValue);
-
-            if (remaining > 0)
-            {
-                var delayMS = rnd.Next(GlobalHub.Default.AfterWheelRollDelayMinMS, GlobalHub.Default.AfterWheelRollDelayMaxMS);
-                System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
-                ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = delayMS, Message = $"next roll after click no. #{doneClickCount + 1}" });
-                Thread.Sleep(delayMS);
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine($"scroll done, no following task");
-            }
-        }
-
-
         private void ClickToOpenGameRewardBoxes()
         {
             //open button 952,580 90x50
@@ -363,9 +343,12 @@ namespace AutoClicker
 
                 if (remaining > 0)
                 {
-                    int nextDelay = rnd.Next(delay, delayRange);
-                    ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = nextDelay, Message = $"next click no. #{doneClickCount + 1}" });
-                    Thread.Sleep(nextDelay);
+                    if (GlobalHub.Default.GameRewardTaskUnitCount > 0)
+                    {
+                        int nextDelay = rnd.Next(delay, delayRange);
+                        ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = nextDelay, Message = $"next click no. #{doneClickCount + 1}" });
+                        Thread.Sleep(nextDelay);
+                    }
 
                     if (GlobalHub.Default.GameRewardTaskUnitCount == 0 || doneClickCount % GlobalHub.Default.GameRewardTaskUnitCount == 0)
                     {
@@ -375,6 +358,25 @@ namespace AutoClicker
             }
 
             Finished?.Invoke(this, null);
+        }
+
+        private void ScrollMouseMiddleWheel(int doneClickCount, int remaining)
+        {
+            var rollValue = GlobalHub.Default.GameRewardWheelRollValue;
+            System.Diagnostics.Debug.WriteLine($"scroll({rollValue}) going to start, click done #{doneClickCount}, remaining #{remaining}");
+            Win32.ScrollWheel(rollValue);
+
+            if (remaining > 0)
+            {
+                var delayMS = rnd.Next(GlobalHub.Default.AfterWheelRollDelayMinMS, GlobalHub.Default.AfterWheelRollDelayMaxMS);
+                System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
+                ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = delayMS, Message = $"next roll after click no. #{doneClickCount + 1}" });
+                Thread.Sleep(delayMS);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"scroll done, no following task");
+            }
         }
 
         public bool IsAlive

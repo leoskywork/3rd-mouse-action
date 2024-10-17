@@ -749,6 +749,11 @@
             // 
             // numericUpDownGameBoxGap
             // 
+            this.numericUpDownGameBoxGap.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpDownGameBoxGap.Location = new System.Drawing.Point(188, 25);
             this.numericUpDownGameBoxGap.Maximum = new decimal(new int[] {
             10000,
@@ -798,6 +803,11 @@
             // 
             // numericUpDownWheelRoll
             // 
+            this.numericUpDownWheelRoll.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpDownWheelRoll.Location = new System.Drawing.Point(188, 65);
             this.numericUpDownWheelRoll.Maximum = new decimal(new int[] {
             1000,
@@ -855,6 +865,11 @@
             // 
             // numericUpDownRollDelayMin
             // 
+            this.numericUpDownRollDelayMin.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.numericUpDownRollDelayMin.Location = new System.Drawing.Point(476, 24);
             this.numericUpDownRollDelayMin.Maximum = new decimal(new int[] {
             1000000,
@@ -877,6 +892,11 @@
             // 
             // numericUpDownRollDelayMax
             // 
+            this.numericUpDownRollDelayMax.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.numericUpDownRollDelayMax.Location = new System.Drawing.Point(578, 24);
             this.numericUpDownRollDelayMax.Maximum = new decimal(new int[] {
             1000000,
