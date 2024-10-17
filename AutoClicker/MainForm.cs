@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace AutoClicker
             InitializeComponent();
         }
 
- 
+
 
         private void Form_Load(object sender, EventArgs e)
         {
@@ -31,13 +32,13 @@ namespace AutoClicker
             DelayHandler(null, null);
             CountHandler(null, null);
 
-            clicker.NextClick += HandleNextClick;
+            clicker.ProgressReport += HandleProgressReport;
             clicker.Finished += HandleFinished;
 
             this.SetVersionInfo();
 
 
-            
+
 
 
             if (Environment.MachineName == "LEO-PC-PRO")
@@ -53,14 +54,14 @@ namespace AutoClicker
             }
         }
 
-        private void HandleNextClick(object sender, AutoClicker.NextClickEventArgs e)
+        private void HandleProgressReport(object sender, AutoClicker.ProgressReportEventArgs e)
         {
             if (countdownThread != null)
             {
                 countdownThread.Abort();
             }
 
-            countdownThread = new Thread(() => CountDown(e.NextClickDelayMS, e.Message));
+            countdownThread = new Thread(() => CountDown(e.NextTaskDelayMS, e.Message));
             countdownThread.Start();
         }
 
@@ -69,15 +70,19 @@ namespace AutoClicker
             EnableControls("done");
         }
 
-        private void CountDown(int Milliseconds, string message)
+        private void CountDown(int milliseconds, string message)
         {
-            //for (int i = 0; i < Milliseconds; i += 10)
-            //{
-            //tslStatus.Text = string.Format("Next click: {0}ms", Milliseconds - i);
-            //Thread.Sleep(9);
-            //}
+            int updateInterval = 400;
 
-            tslStatus.Text = $"Next click: {Milliseconds}ms, {message}";
+            for (int i = 0; i < milliseconds; i += updateInterval)
+            {
+                int remainingMS = milliseconds - i;
+                string time = remainingMS < 2000 ? remainingMS + "ms" : remainingMS / 1000 + "s";
+                tslStatus.Text = $"Progress - {message}, delay time: {time}";
+                Thread.Sleep(Math.Min(updateInterval, remainingMS) - 4);
+            }
+
+            //tslStatus.Text = null;
         }
 
         private void ClickTypeHandler(object sender, EventArgs e)
@@ -266,7 +271,7 @@ namespace AutoClicker
             }, GlobalHub.MouseTaskStartDelayMS);
         }
 
-    
+
 
         delegate void SetEnabledCallback(Control Control, bool Enabled);
         private void SetEnabled(Control Control, bool Enabled)

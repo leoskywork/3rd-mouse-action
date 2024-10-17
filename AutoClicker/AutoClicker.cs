@@ -89,13 +89,13 @@ namespace AutoClicker
             rnd = new Random();
         }
 
-        public class NextClickEventArgs : EventArgs
+        public class ProgressReportEventArgs : EventArgs
         {
-            public int NextClickDelayMS;
+            public int NextTaskDelayMS;
             public string Message;
         }
 
-        public event EventHandler<NextClickEventArgs> NextClick;
+        public event EventHandler<ProgressReportEventArgs> ProgressReport;
 
         public EventHandler<EventArgs> Finished;
 
@@ -253,7 +253,7 @@ namespace AutoClicker
                 {
                     nextDelay = rnd.Next(delay, delayRange);
                 }
-                NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay });
+                ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = nextDelay });
                 Thread.Sleep(nextDelay);
                 //System.Diagnostics.Debug.Print("Had a nap");
                 remaining--;
@@ -277,6 +277,7 @@ namespace AutoClicker
             {
                 var delayMS = rnd.Next(GlobalHub.Default.AfterWheelRollDelayMinMS, GlobalHub.Default.AfterWheelRollDelayMaxMS);
                 System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
+                ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = delayMS, Message = $"next roll after click no. #{doneClickCount + 1}" });
                 Thread.Sleep(delayMS);
             }
             else
@@ -363,7 +364,7 @@ namespace AutoClicker
                 if (remaining > 0)
                 {
                     int nextDelay = rnd.Next(delay, delayRange);
-                    NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay, Message = $" next no. #{doneClickCount + 1}" });
+                    ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = nextDelay, Message = $"next click no. #{doneClickCount + 1}" });
                     Thread.Sleep(nextDelay);
 
                     if (GlobalHub.Default.GameRewardTaskUnitCount == 0 || doneClickCount % GlobalHub.Default.GameRewardTaskUnitCount == 0)
