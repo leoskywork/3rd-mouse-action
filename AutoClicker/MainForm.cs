@@ -404,8 +404,25 @@ namespace AutoClicker
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //SaveSettings();
-            WriteToHubSettings();
+            try
+            {
+                //SaveSettings();
+                WriteToHubSettings();
+
+                if (clicker.IsAlive)
+                {
+                    clicker.Stop();
+                }
+
+                if (countdownThread != null && countdownThread.IsAlive)
+                {
+                    countdownThread.Abort();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
         }
 
 

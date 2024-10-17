@@ -11,8 +11,8 @@ namespace AutoClicker
     public class GlobalHub
     {
         public const string Version = "1.0";
-        public const string Subversion = "1";
-        public const string AppName = "MAMaster";
+        public const string Subversion = "2";
+        public const string AppName = "MAM";
         public static DateTime ExeCreateDate = DateTime.MinValue;
         public static DateTime ExeUpdateDate = DateTime.MinValue;
 
