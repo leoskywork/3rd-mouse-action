@@ -259,7 +259,7 @@ namespace AutoClicker
                 remaining--;
                 doneClickCount++;
 
-                if (doneClickCount % GlobalHub.TaskUnitCount == 0)
+                if (doneClickCount % GlobalHub.Default.GameRewardTaskUnitCount == 0)
                 {
                     ScrollMouseMiddleWheel(doneClickCount, remaining);
                 }
@@ -275,7 +275,7 @@ namespace AutoClicker
 
             if (remaining > 0)
             {
-                var delayMS = rnd.Next(1220, 1920);
+                var delayMS = rnd.Next(GlobalHub.Default.AfterWheelRollDelayMinMS, GlobalHub.Default.AfterWheelRollDelayMaxMS);
                 System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
                 Thread.Sleep(delayMS);
             }
@@ -302,7 +302,7 @@ namespace AutoClicker
                 if (!IsAlive) return;
                 SyncSettings();
 
-                int offsetY = GlobalHub.Default.GameRewardBoxGap * (doneClickCount % GlobalHub.TaskUnitCount);
+                int offsetY = GlobalHub.Default.GameRewardTaskUnitCount == 0 ? 0 :  GlobalHub.Default.GameRewardBoxGap * (doneClickCount % GlobalHub.Default.GameRewardTaskUnitCount);
                 int adjustY = y + offsetY;
 
                 if (locationType == LocationType.RandomRange)
@@ -325,30 +325,33 @@ namespace AutoClicker
                 }
                 else throw new NotSupportedException();
 
-                for (int i = 0; i < (doubleClick ? 2 : 1); i++)
+                if (GlobalHub.Default.GameRewardTaskUnitCount > 0)
                 {
-                    // Add a delay if it's a double click.
-                    if (i == 1)
+                    for (int i = 0; i < (doubleClick ? 2 : 1); i++)
                     {
-                        Thread.Sleep(50 + rnd.Next(10, 90));
-                    }
+                        // Add a delay if it's a double click.
+                        if (i == 1)
+                        {
+                            Thread.Sleep(50 + rnd.Next(10, 90));
+                        }
 
-                    if (buttonType == ButtonType.Left)
-                    {
-                        Win32.INPUT inputDown = new Win32.INPUT
+                        if (buttonType == ButtonType.Left)
                         {
-                            type = Win32.SendInputEventType.InputMouse,
-                            mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftDown }
-                        };
-                        inputs.Add(inputDown);
-                        Win32.INPUT inputUp = new Win32.INPUT
-                        {
-                            type = Win32.SendInputEventType.InputMouse,
-                            mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftUp }
-                        };
-                        inputs.Add(inputUp);
+                            Win32.INPUT inputDown = new Win32.INPUT
+                            {
+                                type = Win32.SendInputEventType.InputMouse,
+                                mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftDown }
+                            };
+                            inputs.Add(inputDown);
+                            Win32.INPUT inputUp = new Win32.INPUT
+                            {
+                                type = Win32.SendInputEventType.InputMouse,
+                                mi = new Win32.MOUSEINPUT { dwFlags = Win32.MouseEventFlags.LeftUp }
+                            };
+                            inputs.Add(inputUp);
+                        }
+                        else throw new NotSupportedException();
                     }
-                    else throw new NotSupportedException();
                 }
 
                 Win32.SendInput((uint)inputs.Count, inputs.ToArray(), Marshal.SizeOf(new Win32.INPUT()));
@@ -357,13 +360,16 @@ namespace AutoClicker
                 doneClickCount++;
                 inputs.Clear();
 
-                int nextDelay = rnd.Next(delay, delayRange);
-                NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay, Message = $" next no. #{doneClickCount + 1}" });
-                Thread.Sleep(nextDelay);
-
-                if (doneClickCount % GlobalHub.TaskUnitCount == 0 && remaining > 0)
+                if (remaining > 0)
                 {
-                    ScrollMouseMiddleWheel(doneClickCount, remaining);
+                    int nextDelay = rnd.Next(delay, delayRange);
+                    NextClick?.Invoke(this, new NextClickEventArgs { NextClickDelayMS = nextDelay, Message = $" next no. #{doneClickCount + 1}" });
+                    Thread.Sleep(nextDelay);
+
+                    if (GlobalHub.Default.GameRewardTaskUnitCount == 0 || doneClickCount % GlobalHub.Default.GameRewardTaskUnitCount == 0)
+                    {
+                        ScrollMouseMiddleWheel(doneClickCount, remaining);
+                    }
                 }
             }
 

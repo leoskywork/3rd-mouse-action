@@ -33,6 +33,7 @@ namespace AutoClicker
             GlobalHub.Default.LastCloseLocationY = Properties.Settings.Default.LastCloseLocation.Y;
             GlobalHub.Default.GameRewardBoxGap = Properties.Settings.Default.GameRewardBoxGap;
             GlobalHub.Default.GameRewardWheelRollValue = Properties.Settings.Default.GameRewardWheelRollValue;
+            GlobalHub.Default.GameRewardTaskUnitCount = Properties.Settings.Default.GameRewardTaskUnitCount;
 
             GlobalHub.Default.RandomAreaPointX = Properties.Settings.Default.RandomAreaPoint.X;
             GlobalHub.Default.RandomAreaPointY = Properties.Settings.Default.RandomAreaPoint.Y;
@@ -45,7 +46,7 @@ namespace AutoClicker
             GlobalHub.Default.NextClickDelayMaxMS = Properties.Settings.Default.NextClickDelayMaxMS;
             GlobalHub.Default.AfterWheelRollDelayMinMS = Properties.Settings.Default.AfterWheelRollDelayMinMS;
             GlobalHub.Default.AfterWheelRollDelayMaxMS = Properties.Settings.Default.AfterWheelRollDelayMaxMS; 
-            
+
         }
 
         private static void WriteAppConfig()
@@ -57,6 +58,7 @@ namespace AutoClicker
                 Properties.Settings.Default.LastCloseLocation = new System.Drawing.Point(GlobalHub.Default.LastCloseLocationX, GlobalHub.Default.LastCloseLocationY);
                 Properties.Settings.Default.GameRewardBoxGap = GlobalHub.Default.GameRewardBoxGap;
                 Properties.Settings.Default.GameRewardWheelRollValue = GlobalHub.Default.GameRewardWheelRollValue;
+                Properties.Settings.Default.GameRewardTaskUnitCount = GlobalHub.Default.GameRewardTaskUnitCount;
 
                 Properties.Settings.Default.RandomAreaPoint = new System.Drawing.Point(GlobalHub.Default.RandomAreaPointX, GlobalHub.Default.RandomAreaPointY);
                 Properties.Settings.Default.RandomAreaSize = new System.Drawing.Size(GlobalHub.Default.RandomAreaSizeWidth, GlobalHub.Default.RandomAreaSizeHeight);

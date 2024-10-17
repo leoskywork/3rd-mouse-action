@@ -20,7 +20,7 @@ namespace AutoClicker
         public const int TmpLogFileMaxCount = 200;
 
         public const int MouseTaskStartDelayMS = 2000;// 1000;//2000;
-        public const int TaskUnitCount = 3;
+        //public const int TaskUnitCount = 3;
         //public const int MouseScrollValue = -400;//-200; //up or down
 
 
@@ -49,6 +49,10 @@ namespace AutoClicker
         public int GameRewardBoxGap { get; set; }
 
         public int GameRewardWheelRollValue { get; set; }
+
+        public int GameRewardTaskUnitCount { get; set; }
+
+       
 
         private GlobalHub()
         {

@@ -38,7 +38,6 @@
             this.rdbClickSingleLeft = new System.Windows.Forms.RadioButton();
             this.grpControls = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnToggle = new System.Windows.Forms.Button();
             this.btnHotkeyRemove = new System.Windows.Forms.Button();
             this.txtHotkey = new System.Windows.Forms.TextBox();
             this.grpCount = new System.Windows.Forms.GroupBox();
@@ -73,13 +72,19 @@
             this.rdbLocationFixed = new System.Windows.Forms.RadioButton();
             this.rdbLocationRandom = new System.Windows.Forms.RadioButton();
             this.rdbLocationMouse = new System.Windows.Forms.RadioButton();
+            this.btnToggle = new System.Windows.Forms.Button();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label12 = new System.Windows.Forms.Label();
             this.numericUpDownGameBoxGap = new System.Windows.Forms.NumericUpDown();
             this.groupBoxOpenGameReward = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.numericUpDownWheelRoll = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDownTaskUnitCount = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericUpDownRollDelayMin = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRollDelayMax = new System.Windows.Forms.NumericUpDown();
             this.grpMain.SuspendLayout();
             this.grpClickType.SuspendLayout();
             this.grpControls.SuspendLayout();
@@ -100,6 +105,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGameBoxGap)).BeginInit();
             this.groupBoxOpenGameReward.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMax)).BeginInit();
             this.SuspendLayout();
             // 
             // grpMain
@@ -232,18 +240,6 @@
             this.label11.Size = new System.Drawing.Size(55, 15);
             this.label11.TabIndex = 4;
             this.label11.Text = "Hotkey";
-            // 
-            // btnToggle
-            // 
-            this.btnToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggle.Location = new System.Drawing.Point(605, 501);
-            this.btnToggle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnToggle.Name = "btnToggle";
-            this.btnToggle.Size = new System.Drawing.Size(100, 29);
-            this.btnToggle.TabIndex = 3;
-            this.btnToggle.Text = "Start";
-            this.btnToggle.UseVisualStyleBackColor = true;
-            this.btnToggle.Click += new System.EventHandler(this.btnToggle_Click);
             // 
             // btnHotkeyRemove
             // 
@@ -711,12 +707,24 @@
             this.rdbLocationMouse.UseVisualStyleBackColor = true;
             this.rdbLocationMouse.CheckedChanged += new System.EventHandler(this.LocationHandler);
             // 
+            // btnToggle
+            // 
+            this.btnToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggle.Location = new System.Drawing.Point(594, 553);
+            this.btnToggle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnToggle.Name = "btnToggle";
+            this.btnToggle.Size = new System.Drawing.Size(100, 29);
+            this.btnToggle.TabIndex = 3;
+            this.btnToggle.Text = "Start";
+            this.btnToggle.UseVisualStyleBackColor = true;
+            this.btnToggle.Click += new System.EventHandler(this.btnToggle_Click);
+            // 
             // statusStripMain
             // 
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslStatus});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 547);
+            this.statusStripMain.Location = new System.Drawing.Point(0, 597);
             this.statusStripMain.Name = "statusStripMain";
             this.statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.statusStripMain.Size = new System.Drawing.Size(729, 25);
@@ -733,7 +741,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 38);
+            this.label12.Location = new System.Drawing.Point(19, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(135, 15);
             this.label12.TabIndex = 4;
@@ -741,7 +749,7 @@
             // 
             // numericUpDownGameBoxGap
             // 
-            this.numericUpDownGameBoxGap.Location = new System.Drawing.Point(188, 33);
+            this.numericUpDownGameBoxGap.Location = new System.Drawing.Point(188, 25);
             this.numericUpDownGameBoxGap.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -763,29 +771,34 @@
             // 
             // groupBoxOpenGameReward
             // 
+            this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownRollDelayMax);
+            this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownRollDelayMin);
+            this.groupBoxOpenGameReward.Controls.Add(this.label15);
+            this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownTaskUnitCount);
+            this.groupBoxOpenGameReward.Controls.Add(this.label14);
             this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownWheelRoll);
             this.groupBoxOpenGameReward.Controls.Add(this.label13);
             this.groupBoxOpenGameReward.Controls.Add(this.numericUpDownGameBoxGap);
             this.groupBoxOpenGameReward.Controls.Add(this.label12);
             this.groupBoxOpenGameReward.Location = new System.Drawing.Point(16, 386);
             this.groupBoxOpenGameReward.Name = "groupBoxOpenGameReward";
-            this.groupBoxOpenGameReward.Size = new System.Drawing.Size(316, 143);
+            this.groupBoxOpenGameReward.Size = new System.Drawing.Size(699, 143);
             this.groupBoxOpenGameReward.TabIndex = 6;
             this.groupBoxOpenGameReward.TabStop = false;
             this.groupBoxOpenGameReward.Text = "Open reward box";
             // 
-            // label13
+            // label14
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(19, 98);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(135, 15);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Wheel roll value";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(19, 108);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(135, 15);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Click unit count";
             // 
             // numericUpDownWheelRoll
             // 
-            this.numericUpDownWheelRoll.Location = new System.Drawing.Point(187, 96);
+            this.numericUpDownWheelRoll.Location = new System.Drawing.Point(188, 65);
             this.numericUpDownWheelRoll.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -805,11 +818,90 @@
             0,
             0});
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 70);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(135, 15);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Wheel roll value";
+            // 
+            // numericUpDownTaskUnitCount
+            // 
+            this.numericUpDownTaskUnitCount.Location = new System.Drawing.Point(188, 103);
+            this.numericUpDownTaskUnitCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownTaskUnitCount.Name = "numericUpDownTaskUnitCount";
+            this.numericUpDownTaskUnitCount.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownTaskUnitCount.TabIndex = 9;
+            this.numericUpDownTaskUnitCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(340, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(111, 15);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Roll delay ms";
+            // 
+            // numericUpDownRollDelayMin
+            // 
+            this.numericUpDownRollDelayMin.Location = new System.Drawing.Point(476, 24);
+            this.numericUpDownRollDelayMin.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMin.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMin.Name = "numericUpDownRollDelayMin";
+            this.numericUpDownRollDelayMin.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownRollDelayMin.TabIndex = 11;
+            this.numericUpDownRollDelayMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownRollDelayMax
+            // 
+            this.numericUpDownRollDelayMax.Location = new System.Drawing.Point(578, 24);
+            this.numericUpDownRollDelayMax.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMax.Name = "numericUpDownRollDelayMax";
+            this.numericUpDownRollDelayMax.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownRollDelayMax.TabIndex = 12;
+            this.numericUpDownRollDelayMax.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 572);
+            this.ClientSize = new System.Drawing.Size(729, 622);
             this.Controls.Add(this.groupBoxOpenGameReward);
             this.Controls.Add(this.statusStripMain);
             this.Controls.Add(this.btnToggle);
@@ -847,6 +939,9 @@
             this.groupBoxOpenGameReward.ResumeLayout(false);
             this.groupBoxOpenGameReward.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -906,6 +1001,11 @@
         private System.Windows.Forms.GroupBox groupBoxOpenGameReward;
         private System.Windows.Forms.NumericUpDown numericUpDownWheelRoll;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numericUpDownTaskUnitCount;
+        private System.Windows.Forms.NumericUpDown numericUpDownRollDelayMin;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown numericUpDownRollDelayMax;
     }
 }
 

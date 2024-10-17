@@ -166,5 +166,17 @@ namespace AutoClicker.Properties {
                 this["GameRewardWheelRollValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int GameRewardTaskUnitCount {
+            get {
+                return ((int)(this["GameRewardTaskUnitCount"]));
+            }
+            set {
+                this["GameRewardTaskUnitCount"] = value;
+            }
+        }
     }
 }

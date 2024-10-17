@@ -417,6 +417,9 @@ namespace AutoClicker
             this.Location = new System.Drawing.Point(GlobalHub.Default.LastCloseLocationX, GlobalHub.Default.LastCloseLocationY);
             this.numericUpDownGameBoxGap.Value = GlobalHub.Default.GameRewardBoxGap;
             this.numericUpDownWheelRoll.Value = GlobalHub.Default.GameRewardWheelRollValue;
+            this.numericUpDownTaskUnitCount.Value = GlobalHub.Default.GameRewardTaskUnitCount;
+            this.numericUpDownRollDelayMin.Value = GlobalHub.Default.AfterWheelRollDelayMinMS;
+            this.numericUpDownRollDelayMax.Value = GlobalHub.Default.AfterWheelRollDelayMaxMS;
         }
 
         private void WriteToHubSettings()
@@ -432,6 +435,9 @@ namespace AutoClicker
             GlobalHub.Default.LastCloseLocationY = this.Location.Y;
             GlobalHub.Default.GameRewardBoxGap = (int)this.numericUpDownGameBoxGap.Value;
             GlobalHub.Default.GameRewardWheelRollValue = (int)this.numericUpDownWheelRoll.Value;
+            GlobalHub.Default.GameRewardTaskUnitCount = (int)this.numericUpDownTaskUnitCount.Value;
+            GlobalHub.Default.AfterWheelRollDelayMinMS = (int)this.numericUpDownRollDelayMin.Value;
+            GlobalHub.Default.AfterWheelRollDelayMaxMS = (int)this.numericUpDownRollDelayMax.Value;
         }
 
 
