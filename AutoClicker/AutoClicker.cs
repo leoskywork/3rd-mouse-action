@@ -346,7 +346,7 @@ namespace AutoClicker
                     if (GlobalHub.Default.GameRewardTaskUnitCount > 0)
                     {
                         int nextDelay = rnd.Next(delay, delayRange);
-                        ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = nextDelay, Message = $"next click no. #{doneClickCount + 1}" });
+                        ProgressReportInternal(nextDelay, $"next click no. #{doneClickCount + 1}");
                         Thread.Sleep(nextDelay);
                     }
 
@@ -368,15 +368,23 @@ namespace AutoClicker
 
             if (remaining > 0)
             {
-                var delayMS = rnd.Next(GlobalHub.Default.AfterWheelRollDelayMinMS, GlobalHub.Default.AfterWheelRollDelayMaxMS);
+                var min = GlobalHub.Default.AfterWheelRollDelayMinMS;
+                var max = GlobalHub.Default.AfterWheelRollDelayMaxMS;
+
+                var delayMS = max > min ?  rnd.Next(min, max) : min;
                 System.Diagnostics.Debug.WriteLine($"scroll done, going to sleep {delayMS}ms");
-                ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = delayMS, Message = $"next roll after click no. #{doneClickCount + 1}" });
+                ProgressReportInternal(delayMS, $"next roll after click no. #{doneClickCount + 1}");
                 Thread.Sleep(delayMS);
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine($"scroll done, no following task");
             }
+        }
+
+        private void ProgressReportInternal(int delayMS, string message)
+        {
+            ProgressReport?.Invoke(this, new ProgressReportEventArgs { NextTaskDelayMS = delayMS, Message = message });
         }
 
         public bool IsAlive
