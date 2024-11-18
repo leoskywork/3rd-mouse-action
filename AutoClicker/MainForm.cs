@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.IO;
+using System.Net.Configuration;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace AutoClicker
         private Win32.fsModifiers hotkeyNodifiers;
 
         private Thread countdownThread;
+        private ProgressBox progressBox;
 
         public MainForm()
         {
@@ -78,7 +80,7 @@ namespace AutoClicker
             {
                 int remainingMS = milliseconds - i;
                 string time = remainingMS < 2000 ? remainingMS + "ms" : remainingMS / 1000 + "s";
-                tslStatus.Text = $"Progress - {message}, delay time: {time}";
+                SetProgressMessage($"Progress - {message}, delay time: {time}");
                 Thread.Sleep(Math.Min(updateInterval, remainingMS) - 4);
             }
 
@@ -249,7 +251,10 @@ namespace AutoClicker
 
             if (isWaitingToRun)
             {
-                this.tslStatus.Text = $"start click in {GlobalHub.MouseTaskStartDelayMS}ms...";
+                this.progressBox = new ProgressBox();
+                this.progressBox.ShowDefault(this);
+                this.progressBox.ButtonAction += ProgressBox_ButtonAction;
+                this.SetProgressMessage($"start click in {GlobalHub.MouseTaskStartDelayMS}ms...");
                 Cursor = Cursors.WaitCursor;
             }
 
@@ -259,18 +264,42 @@ namespace AutoClicker
 
                 if (isWaitingToRun)
                 {
-                    clicker.Start();
-                    DisableControls();
+                   StartTasks();
                 }
                 else
                 {
-                    clicker.Stop();
-                    countdownThread.Abort();
-                    EnableControls("task abort");
+                   StopTasks();
                 }
             }, GlobalHub.MouseTaskStartDelayMS);
         }
 
+        private void ProgressBox_ButtonAction(object sender, EventArgs e)
+        {
+            StopTasks();
+            this.WindowState = FormWindowState.Normal;
+            this.progressBox?.Close();
+            this.progressBox = null;
+        }
+
+        private void SetProgressMessage(string message)
+        {
+            this.tslStatus.Text = message;
+            this.progressBox?.ShowMessage(message);
+        }
+
+        private void StartTasks()
+        {
+            clicker.Start();
+            DisableControls();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void StopTasks()
+        {
+            clicker.Stop();
+            countdownThread.Abort();
+            EnableControls("task abort");
+        }
 
 
         delegate void SetEnabledCallback(Control Control, bool Enabled);
@@ -303,7 +332,7 @@ namespace AutoClicker
 
         private void EnableControls(string message)
         {
-            tslStatus.Text = message;
+            SetProgressMessage(message);
             SetEnabled(grpClickType, true);
             SetEnabled(grpLocation, true);
             SetEnabled(grpDelay, true);

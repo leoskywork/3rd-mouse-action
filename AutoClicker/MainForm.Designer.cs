@@ -78,13 +78,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.numericUpDownGameBoxGap = new System.Windows.Forms.NumericUpDown();
             this.groupBoxOpenGameReward = new System.Windows.Forms.GroupBox();
+            this.numericUpDownRollDelayMax = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRollDelayMin = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericUpDownTaskUnitCount = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDownWheelRoll = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDownTaskUnitCount = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
-            this.numericUpDownRollDelayMin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownRollDelayMax = new System.Windows.Forms.NumericUpDown();
             this.grpMain.SuspendLayout();
             this.grpClickType.SuspendLayout();
             this.grpControls.SuspendLayout();
@@ -104,10 +104,10 @@
             this.statusStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGameBoxGap)).BeginInit();
             this.groupBoxOpenGameReward.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).BeginInit();
             this.SuspendLayout();
             // 
             // grpMain
@@ -792,6 +792,86 @@
             this.groupBoxOpenGameReward.TabStop = false;
             this.groupBoxOpenGameReward.Text = "Open reward box";
             // 
+            // numericUpDownRollDelayMax
+            // 
+            this.numericUpDownRollDelayMax.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMax.Location = new System.Drawing.Point(578, 24);
+            this.numericUpDownRollDelayMax.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMax.Name = "numericUpDownRollDelayMax";
+            this.numericUpDownRollDelayMax.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownRollDelayMax.TabIndex = 12;
+            this.numericUpDownRollDelayMax.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownRollDelayMin
+            // 
+            this.numericUpDownRollDelayMin.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMin.Location = new System.Drawing.Point(476, 24);
+            this.numericUpDownRollDelayMin.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMin.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRollDelayMin.Name = "numericUpDownRollDelayMin";
+            this.numericUpDownRollDelayMin.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownRollDelayMin.TabIndex = 11;
+            this.numericUpDownRollDelayMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(340, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(111, 15);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Roll delay ms";
+            // 
+            // numericUpDownTaskUnitCount
+            // 
+            this.numericUpDownTaskUnitCount.Location = new System.Drawing.Point(188, 103);
+            this.numericUpDownTaskUnitCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownTaskUnitCount.Name = "numericUpDownTaskUnitCount";
+            this.numericUpDownTaskUnitCount.Size = new System.Drawing.Size(80, 25);
+            this.numericUpDownTaskUnitCount.TabIndex = 9;
+            this.numericUpDownTaskUnitCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -837,86 +917,6 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Wheel roll value";
             // 
-            // numericUpDownTaskUnitCount
-            // 
-            this.numericUpDownTaskUnitCount.Location = new System.Drawing.Point(188, 103);
-            this.numericUpDownTaskUnitCount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownTaskUnitCount.Name = "numericUpDownTaskUnitCount";
-            this.numericUpDownTaskUnitCount.Size = new System.Drawing.Size(80, 25);
-            this.numericUpDownTaskUnitCount.TabIndex = 9;
-            this.numericUpDownTaskUnitCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(340, 29);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(111, 15);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Roll delay ms";
-            // 
-            // numericUpDownRollDelayMin
-            // 
-            this.numericUpDownRollDelayMin.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMin.Location = new System.Drawing.Point(476, 24);
-            this.numericUpDownRollDelayMin.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMin.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMin.Name = "numericUpDownRollDelayMin";
-            this.numericUpDownRollDelayMin.Size = new System.Drawing.Size(80, 25);
-            this.numericUpDownRollDelayMin.TabIndex = 11;
-            this.numericUpDownRollDelayMin.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDownRollDelayMax
-            // 
-            this.numericUpDownRollDelayMax.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMax.Location = new System.Drawing.Point(578, 24);
-            this.numericUpDownRollDelayMax.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMax.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numericUpDownRollDelayMax.Name = "numericUpDownRollDelayMax";
-            this.numericUpDownRollDelayMax.Size = new System.Drawing.Size(80, 25);
-            this.numericUpDownRollDelayMax.TabIndex = 12;
-            this.numericUpDownRollDelayMax.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -928,6 +928,7 @@
             this.Controls.Add(this.grpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Auto Clicker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -958,10 +959,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGameBoxGap)).EndInit();
             this.groupBoxOpenGameReward.ResumeLayout(false);
             this.groupBoxOpenGameReward.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRollDelayMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaskUnitCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWheelRoll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
